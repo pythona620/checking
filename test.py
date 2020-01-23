@@ -1,25 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@pythona620 
-pythona620
-/
-Twonumbersadding
-1
-01
- Code Issues 0 Pull requests 0 Actions Projects 0 Wiki Security Insights Settings
-Twonumbersadding/__init__.py / 
-@pythona620 pythona620 Update __init__.py
-4a9e6d3 5 hours ago
-39 lines (33 sloc)  1.08 KB
-  
-You're using code navigation to jump to definitions or references.
-Learn more or give us feedback
 # number adding
 from adapt.intent import IntentBuilder
 from mycroft.skills.core import MycroftSkill, intent_handler
@@ -52,22 +30,8 @@ class NumberAddingSkill(MycroftSkill):
 		first_number = self.get_numerical_response("get.first")
 		# get second_number
 		second_number = self.get_numerical_response("get.second")
-		answer = first_number + second_number
-		yip=str(answer)
-		self.speak_dialog("add.two.numbers.is",{"answer":yip})
+		self.speak("first_number " + " second_number") #print specific keword
 	def stop(self):		
 		pass
 def create_skill():
 	return NumberAddingSkill()
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
