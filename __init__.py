@@ -5,8 +5,8 @@ from random import randint
 __author__ = 'pthona'
 LOGGER = getLogger(__name__)
 class NumberGuessSkill(MycroftSkill):
-	sor = ""
-	des = ""
+	sor = []
+	des = []
 	def get_name_response(self,dialog):
 	def get_name_response(self,dialog):
 # 	lowerBound = 0
