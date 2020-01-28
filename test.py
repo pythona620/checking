@@ -1,34 +1,54 @@
 from adapt.intent import IntentBuilder
-from mycroft import MycroftSkill, intent_handler, intent_file_handler
+from mycroft.skills.core import MycroftSkill, intent_handler
+from mycroft.util.log import LOG, getLogger
 
-stops = ['vizag', 'hyderabad', 'vijayawada']
+from random import randint
 
-class ticket(MycroftSkill):
-    def __init__(self):
-        MycroftSkill.__init__(self)
-    
-    @intent_handler(IntentBuilder("travel").require("travel").build())
-    
-    def handle_travel_intent(self, source,destination):
-# 		def getstop(self,source,destination):
-        	source = []
-	    	destination = []
-	    	while true:
-			source = (source.data.get('source')
-	  	    	if source in stops:
-				  while True:
-                    			destination = (source.data.get('destination')               
-                # destination = input('Enter your destination: ')
-                    			if destination in stops:
-                       	 		return source, destination
-                    			else:
-                        		self.speak_dialog('vaild.destination')
-                        		continue
-            		else:
-                	self.speak_dialog('vaild.boarding')
-                	continue
-	
-        self.speak("your friend is going " + source  + " " + "to" + " "+  destination )
-     
+__author__ = 'pthona'
+LOGGER = getLogger(__name__)
+
+class NumberGuessSkill(MycroftSkill):
+
+	lowerBound = 0
+	upperBound = 100
+	answer = 0
+	userGuess = 0
+
+	def get_numerical_response(self, dialog):
+		while True:
+			val = self.get_response(dialog)
+			try:
+				val = int(val)
+				return val
+			except ValueError:
+				self.speak_dialog("invalid.input")
+			except:
+				self.speak_dialog("input.error")
+
+	@intent_handler(IntentBuilder("").require("NumberGuess").optionally("Play").optionally("Suggest"))
+	def handle_start_game_intent(self, message):
+		self.speak_dialog("start.game")
+
+		# get lower bound
+		lowerBound = self.get_numerical_response("get.lower")
+		# get upper bound
+		upperBound = self.get_numerical_response("get.upper")
+
+		answer = randint(lowerBound, upperBound)
+		userGuess = lowerBound - 1
+		while userGuess != answer:
+			userGuess = self.get_numerical_response("guess")
+			if userGuess < answer:
+				self.speak_dialog("too.low")
+			elif userGuess > answer:
+				self.speak_dialog("too.high")
+		self.speak_dialog("correct")
+
+	def stop(self):
+		lowerBound, upperBound = 0, 100
+		answer = 0
+		userGuess = answer
+		return True
+
 def create_skill():
-    return ticket()
+	return NumberGuessSkill()
