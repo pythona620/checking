@@ -25,10 +25,8 @@ class ticket(MycroftSkill):
             		else:
                 	self.speak_dialog('vaild.boarding')
                 	continue
-     def stop(self):
-             source,destination = (stops)
-             self.speak("your friend is going " + source  + " " + "to" + " "+  destination )                                    
-        pass
-
+	source,destination = travel(stops)
+        self.speak("your friend is going " + source  + " " + "to" + " "+  destination )
+     
 def create_skill():
     return ticket()
