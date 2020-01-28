@@ -26,7 +26,7 @@ class ticket(MycroftSkill):
                 	self.speak_dialog('vaild.boarding')
                 	continue
      def stop(self):
-             source,destination = getstops(stops)
+             source,destination = (stops)
              self.speak("your friend is going " + source  + " " + "to" + " "+  destination )                                    
         pass
 
