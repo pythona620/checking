@@ -33,6 +33,7 @@ class NumberGuessSkill(MycroftSkill):
 		lowerBound = message.data.get("lower")
 		# get upper bound
 		upperBound = message.data.get("upper")
+		if lowerBound is not None:
 		self.speak_dialog(lowerBound + upperBound )
 
 # # 		answer = randint(lowerBound, upperBound)
