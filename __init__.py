@@ -1,57 +1,42 @@
-from adapt.intent import IntentBuilder
-from mycroft.skills.core import MycroftSkill, intent_handler
-from mycroft.util.log import LOG, getLogger
+from mycroft.skills.context import adds_context, removes_context
 
-from random import randint
+class TeaSkill(MycroftSkill):
+    @intent_handler(IntentBuilder('TeaIntent').require("TeaKeyword"))
+    @adds_context('MilkContext')
+    def handle_tea_intent(self, message):
+        self.milk = False
+        self.speak('Of course, would you like Milk with that?',
+                   expect_response=True)
 
-__author__ = 'pythona'
-LOGGER = getLogger(__name__)
+    @intent_handler(IntentBuilder('NoMilkIntent').require("NoKeyword").
+                                  require('MilkContext').build())
+    @removes_context('MilkContext')
+    @adds_context('HoneyContext')
+    def handle_no_milk_intent(self, message):
+        self.speak('all right, any Honey?', expect_response=True)
 
-class NumberGuessSkill(MycroftSkill):
+    @intent_handler(IntentBuilder('YesMilkIntent').require("YesKeyword").
+                                  require('MilkContext').build())
+    @removes_context('MilkContext')
+    @adds_context('HoneyContext')
+    def handle_yes_milk_intent(self, message):
+        self.milk = True
+        self.speak('What about Honey?', expect_response=True)
 
-	lowerBound = 0
-	upperBound = 100
-	answer = 0
-	userGuess = 0
+    @intent_handler(IntentBuilder('NoHoneyIntent').require("NoKeyword").
+                                  require('HoneyContext').build())
+    @removes_context('HoneyContext')
+    def handle_no_honey_intent(self, message):
+        if self.milk:
+            self.speak('Heres your Tea with a dash of Milk')
+        else:
+            self.speak('Heres your Tea, straight up')
 
-# 	def get_numerical_response(self, dialog):
-# 		while True:
-# 			val = self.get_response(dialog)
-# 			try:
-# 				val = int(val)
-# 				return val
-# 			except ValueError:
-# 				self.speak_dialog("invalid.input")
-# 			except:
-# 				self.speak_dialog("input.error")
-
-	@intent_handler(IntentBuilder("").require("NumberGuess").optionally("Play").optionally("Suggest"))
-	def handle_start_game_intent(self, message):
-		self.speak_dialog("start.game")
-
-		# get lower bound
-		lowerBound = message.data.get("lower")
-		# get upper bound
-		upperBound = message.data.get("upper")
-		if lowerBound is not None:
-			self.speak_dialog(lowerBound + upperBound )
-
-# # 		answer = randint(lowerBound, upperBound)
-# 		userGuess = lowerBound - 1
-# 		while userGuess != answer:
-# 			userGuess = self.get_numerical_response("guess")
-# 			if userGuess < answer:
-# 				self.speak_dialog("too.low")
-# 			elif userGuess > answer:
-# 				self.speak_dialog("too.high")
-# 		self.speak_dialog("correct")
-
-	def stop(self):
-# 		lowerBound, upperBound = 0, 100
-# 		answer = 0
-# 		userGuess = answer
-# 		return True
-		pass
-
-def create_skill():
-	return NumberGuessSkill()
+    @intent_handler(IntentBuilder('YesHoneyIntent').require("YesKeyword").
+                                require('HoneyContext').build())
+    @removes_context('HoneyContext')
+    def handle_yes_honey_intent(self, message):
+        if self.milk:
+            self.speak('Heres your Tea with Milk and Honey')
+        else:
+            self.speak('Heres your Tea with Honey')
