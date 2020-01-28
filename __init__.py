@@ -10,7 +10,7 @@ class NumberGuessSkill(MycroftSkill):
 # 	answer = 0
 # 	userGuess = 0
 # 	def get_numerical_response(self, dialog):
-	def get_numerical_response(self, dialog):
+# 	def get_numerical_response(self, dialog):
 # 		while True:
 # 			val = self.get_response(dialog)
 # 			try:
@@ -24,9 +24,9 @@ class NumberGuessSkill(MycroftSkill):
 	def handle_start_game_intent(self, message):
 		self.speak_dialog("start.game")
 		# get lower bound
-		lowerBound = self.get_numerical_response("get.sor")
+		lowerBound = self.message.data.get("get.sor")
 		# get upper bound
-		upperBound = self.get_numerical_response("get.des")
+		upperBound = self.message.data.get("get.des")
 		answer = randint(lowerBound, upperBound)
 		userGuess = lowerBound - 1
 		while userGuess != answer:
