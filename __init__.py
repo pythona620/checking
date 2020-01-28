@@ -34,7 +34,7 @@ class NumberGuessSkill(MycroftSkill):
 		# get upper bound
 		upperBound = message.data.get("upper")
 		if lowerBound is not None:
-		self.speak_dialog(lowerBound + upperBound )
+			self.speak_dialog(lowerBound + upperBound )
 
 # # 		answer = randint(lowerBound, upperBound)
 # 		userGuess = lowerBound - 1
@@ -47,10 +47,11 @@ class NumberGuessSkill(MycroftSkill):
 # 		self.speak_dialog("correct")
 
 	def stop(self):
-		lowerBound, upperBound = 0, 100
-		answer = 0
-		userGuess = answer
-		return True
+# 		lowerBound, upperBound = 0, 100
+# 		answer = 0
+# 		userGuess = answer
+# 		return True
+		pass
 
 def create_skill():
 	return NumberGuessSkill()
