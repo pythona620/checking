@@ -1,6 +1,8 @@
 from adapt.intent import IntentBuilder
 from mycroft import MycroftSkill, intent_handler, intent_file_handler
+
 stops = ['vizag', 'hyderabad', 'vijayawada']
+
 class ticket(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
@@ -9,8 +11,8 @@ class ticket(MycroftSkill):
     
     def handle_travel_intent(self, source,destination):
 # 		def getstop(self,source,destination):
-#         	source = []
-# 	    	destination = []
+        	source = []
+	    	destination = []
 	    	while true:
 			source = (source.data.get('source')
 	  	    	if source in stops:
@@ -25,7 +27,7 @@ class ticket(MycroftSkill):
             		else:
                 	self.speak_dialog('vaild.boarding')
                 	continue
-	source,destination = travel(stops)
+	
         self.speak("your friend is going " + source  + " " + "to" + " "+  destination )
      
 def create_skill():
