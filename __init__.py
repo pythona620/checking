@@ -5,15 +5,15 @@ from random import randint
 __author__ = 'pthona'
 LOGGER = getLogger(__name__)
 class NumberGuessSkill(MycroftSkill):
-	sor = []
-	des = []
-	def get_name_response(self,dialog):
-	def get_name_response(self,dialog):
-		while True:
-			yip = self.get_response(dailog)
-			try:
-				yip = str(yip)
-			except ValueError:
+# 	sor = []
+# 	des = []
+# 	def get_name_response(self,dialog):
+# 	def get_name_response(self,dialog):
+# 		while True:
+# 			yip = self.get_response(dailog)
+# 			try:
+# 				yip = str(yip)
+# 			except ValueError:
 # 				self.speak_dialog("invalid.input")
 # 			except:
 # 				self.speak_dialog("input.error")	
