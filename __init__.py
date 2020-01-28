@@ -1,4 +1,9 @@
 from mycroft.skills.context import adds_context, removes_context
+from mycroft import MycroftSkill
+
+class TomatoSkill(MycroftSkill):
+    def __init__(self):
+        MycroftSkill.__init__(self)
 
     @intent_handler(IntentBuilder().require('PythonPerson').require('Length'))
     def handle_length(self, message):
@@ -10,9 +15,9 @@ from mycroft.skills.context import adds_context, removes_context
         python = message.data.get('PythonPerson')
         self.speak('{} is from {}'.format(python, from_dict[python]))
    
-# def stop(self):
-# 		pass
+    def stop(self):
+		    pass
 
-# def create_skill():
-# 	return NumberGuessSkill()
+def create_skill():
+	return TomatoSkill()
    
