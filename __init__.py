@@ -7,6 +7,7 @@ LOGGER = getLogger(__name__)
 class NumberGuessSkill(MycroftSkill):
 	sor = ""
 	des = ""
+	def get_name_response(self,dialog):
 # 	lowerBound = 0
 # 	upperBound = 100
 # 	answer = 0
@@ -26,9 +27,9 @@ class NumberGuessSkill(MycroftSkill):
 	def handle_start_game_intent(self, message):
 		self.speak_dialog("start.game")
 		# get lower bound
-		lowerBound = message.data.get("sor")
+		lowerBound = get_name_response("get.sor")
 		# get upper bound
-		upperBound = message.data.get("des")
+		upperBound = get_name_response("get.des")
 		
 		if lowerBound is not None:
 			self.speak(lowerBound + " "+upperBound)
