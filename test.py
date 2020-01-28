@@ -9,8 +9,8 @@ class ticket(MycroftSkill):
     
     def handle_travel_intent(self, source,destination):
 # 		def getstop(self,source,destination):
-        	source = []
-	    	destination = []
+#         	source = []
+# 	    	destination = []
 	    	while true:
 			source = (source.data.get('source')
 	  	    	if source in stops:
