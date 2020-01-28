@@ -8,6 +8,7 @@ class NumberGuessSkill(MycroftSkill):
 	sor = ""
 	des = ""
 	def get_name_response(self,dialog):
+	def get_name_response(self,dialog):
 # 	lowerBound = 0
 # 	upperBound = 100
 # 	answer = 0
