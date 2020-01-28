@@ -30,9 +30,9 @@ class NumberGuessSkill(MycroftSkill):
 		self.speak_dialog("start.game")
 
 		# get lower bound
-		lowerBound = get.message("lower")
+		lowerBound = message.data.get("lower")
 		# get upper bound
-		upperBound = get.message("upper")
+		upperBound = message.data.get("upper")
 
 		answer = randint(lowerBound, upperBound)
 		userGuess = lowerBound - 1
