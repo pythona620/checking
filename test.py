@@ -8,28 +8,26 @@ class ticket(MycroftSkill):
     @intent_handler(IntentBuilder("travel").require("travel").build())
     
     def handle_travel_intent(self, source,destination):
-        
-#     def getstop(self,source,destination):
-        source = []
-	    destination = []
-	    while true:
-            source = (source.data.get('source')
-	  	    if source in stops:
-	  		    while True:
-                    destination = (source.data.get('destination')               
+# 		def getstop(self,source,destination):
+        	source = []
+	    	destination = []
+	    	while true:
+			source = (source.data.get('source')
+	  	    	if source in stops:
+				  while True:
+                    			destination = (source.data.get('destination')               
                 # destination = input('Enter your destination: ')
-                    if destination in stops:
-                        return source, destination
-                    else:
-                        self.speak_dialog('vaild.destination')
-                        continue
-            else:
-                self.speak_dialog('vaild.boarding')
-                continue
+                    			if destination in stops:
+                       	 		return source, destination
+                    			else:
+                        		self.speak_dialog('vaild.destination')
+                        		continue
+            		else:
+                	self.speak_dialog('vaild.boarding')
+                	continue
      def stop(self):
              source,destination = getstops(stops)
-             self.speak("your friend is going " + source  + " " + "to" + " "+  destination ) 
-                                   
+             self.speak("your friend is going " + source  + " " + "to" + " "+  destination )                                    
         pass
 
 def create_skill():
