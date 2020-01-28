@@ -21,10 +21,10 @@ class NumberGuessSkill(MycroftSkill):
 # 			except:
 # 				self.speak_dialog("input.error")
 	@intent_handler(IntentBuilder("").require("NumberGuess").optionally("Play").optionally("Suggest"))
-	def handle_start_game_intent(self, message):
+	def handle_start_game_intent(self, sor):
 		self.speak_dialog("start.game")
 		# get lower bound
-		lowerBound = self.message.data.get("get.sor")
+		lowerBound = self.data.get("get.sor")
 		# get upper bound
 		upperBound = self.message.data.get("get.des")
 		answer = randint(lowerBound, upperBound)
