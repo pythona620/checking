@@ -26,7 +26,7 @@ class NumberGuessSkill(MycroftSkill):
 	def handle_start_game_intent(self, message):
 		self.speak_dialog("start.game")
 		# get lower bound
-		lowerBound = message.data.get("get.sor")
+		lowerBound = message.data.get("sor")
 		# get upper bound
 		upperBound = self.message.data.get("get.des")
 		answer = randint(lowerBound, upperBound)
