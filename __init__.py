@@ -29,7 +29,9 @@ class NumberGuessSkill(MycroftSkill):
 		lowerBound = message.data.get("sor")
 		# get upper bound
 		upperBound = message.data.get("des")
-		self.speak(lowerBound + " "+upperBound)
+		
+		if lowerBound is not None:
+			self.speak(lowerBound + " "+upperBound)
 # 		answer = randint(lowerBound, upperBound)
 # 		userGuess = lowerBound - 1
 # 		while userGuess != answer:
