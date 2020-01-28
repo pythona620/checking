@@ -15,15 +15,15 @@ class NumberGuessSkill(MycroftSkill):
 	userGuess = 0
 
 	def get_numerical_response(self, dialog):
-		while True:
-			val = self.get_response(dialog)
-			try:
-				val = int(val)
-				return val
-			except ValueError:
-				self.speak_dialog("invalid.input")
-			except:
-				self.speak_dialog("input.error")
+# 		while True:
+# 			val = self.get_response(dialog)
+# 			try:
+# 				val = int(val)
+# 				return val
+# 			except ValueError:
+# 				self.speak_dialog("invalid.input")
+# 			except:
+# 				self.speak_dialog("input.error")
 
 	@intent_handler(IntentBuilder("").require("NumberGuess").optionally("Play").optionally("Suggest"))
 	def handle_start_game_intent(self, message):
