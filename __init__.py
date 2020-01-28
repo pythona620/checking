@@ -40,6 +40,7 @@ class NumberGuessSkill(MycroftSkill):
 # 				self.speak_dialog("too.high")
 # 		self.speak_dialog("correct")
 	def stop(self):
+		pass
 # 		lowerBound, upperBound = 0, 100
 # 		answer = 0
 # 		userGuess = answer
