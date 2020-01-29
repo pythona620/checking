@@ -6,17 +6,16 @@ __author__ = 'python'
 LOGGER = getLogger(__name__)
 class checkingSkill(MycroftSkill):
 # 	stops = {"vizag","sec","hyd","abc"}
-	def get_numerical_response(self, dialog):
-		while True:
-			val = self.get_response(dialog)
-				return val
+	def get_names(self, dialog):  #get input from mic
+		yip = self.get_response(dialog) 
+		return yip
 	@intent_handler(IntentBuilder("").require("travel").optionally("Play").optionally("Suggest"))
 	def handle_start_game_intent(self, message):
 		self.speak_dialog("start.game")
 		# get lower bound
-		lowerBound = self.get_numerical_response("get.lower")
-		# get upper bound
-		upperBound = self.get_numerical_response("get.upper")
+		myname = self.get_names("get.lower")
+		# get myfriendname
+		myfriendname = self.get_names("get.upper")
 # 	def  enter_source_destination(stops):
 # 		while True:
 #         		source = lowerBound
@@ -37,6 +36,6 @@ class checkingSkill(MycroftSkill):
 # 	self.speak('The sourceing point is '+ source+ 'and the destination is '+ destination)
 
 	def stop(self):
-		return
+		pass
 def create_skill():
 	return checkingSkill()
