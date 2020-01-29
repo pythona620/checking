@@ -35,7 +35,6 @@ class checkingSkill(MycroftSkill):
 	source, destination = enter_source_destination(stops)
 	self.speak('The sourceing point is '+ source+ 'and the destination is '+ destination)
 
-	def stop(self):
-		pass
+	
 def create_skill():
 	return checkingSkill()
