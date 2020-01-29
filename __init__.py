@@ -14,10 +14,10 @@ class NumberGuessSkill(MycroftSkill):
 	def get_numerical_response(self, dialog):
 		while True:
 			val = self.get_response(dialog)
-	def get_stops(self, stops):
-		stoplist = []
-		if stops !=lower:
-			self.speak(tested ok)
+# 	def get_stops(self, stops):
+# 		stoplist = []
+# 		if stops !=lower:
+# 			self.speak(tested ok)
 		
 	@intent_handler(IntentBuilder("").require("NumberGuess").optionally("Play").optionally("Suggest"))
 	def handle_start_game_intent(self, message):
