@@ -10,7 +10,7 @@ class checkingSkill(MycroftSkill):
 		while True:
 			val = self.get_response(dialog)
 				return val
-	@intent_handler(IntentBuilder("").require("NumberGuess").optionally("Play").optionally("Suggest"))
+	@intent_handler(IntentBuilder("").require("travel").optionally("Play").optionally("Suggest"))
 	def handle_start_game_intent(self, message):
 		self.speak_dialog("start.game")
 		# get lower bound
@@ -33,11 +33,11 @@ class checkingSkill(MycroftSkill):
             			print('Could you please enter a valid boarding point')
            			continue
 
-	stops = ['vizag', 'hyderabad', 'vijayawada']
+	stops = {"vizag", "hyderabad", "vijayawada"}
 	source, destination = enter_source_destination(stops)
 	self.speak('The sourceing point is '+ source+ 'and the destination is '+ destination)
 
 	def stop(self):
-		pass
+		return
 def create_skill():
 	return checkingSkill()
