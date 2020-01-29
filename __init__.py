@@ -14,16 +14,15 @@ class checkingSkill(MycroftSkill):
 	def handle_start_game_intent(self, message):
 		self.speak_dialog("start.game")
 		# get lower bound
-# 		source = self.get_numerical_response("get.lower")
-# 		self.speak(lowerBound)
-# 		# get upper bound
-# 		destination = self.get_numerical_response("get.upper")
+		lowerBound = self.get_numerical_response("get.lower")
+		# get upper bound
+		upperBound = self.get_numerical_response("get.upper")
 	def  enter_source_destination(stops):
 		while True:
-        		source = self.get_numerical_response("get.lower")
+        		source = lowerBound
         		if source in stops:
             			while True:
-                			destination = self.get_numerical_response('get.upper')
+                			destination = upperBound
                 			if destination in stops:
                     				return source, destination
                 			else:
