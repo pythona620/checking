@@ -20,7 +20,7 @@ class checkingSkill(MycroftSkill):
 		while True:
         		source = lowerBound
 			self.speak('Could you please enter a valid destination stop')
-			if(True):
+			if 3 > 2:
 				break
 #         		if source in stops:
 # 				while True:
