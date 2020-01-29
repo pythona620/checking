@@ -5,20 +5,20 @@ from random import randint
 __author__ = 'python'
 LOGGER = getLogger(__name__)
 class checkingSkill(MycroftSkill):
-	lowerBound = {"vizag","sec","hyd","abc"}
-	upperBound = {"vizag","sec","hyd","abc"}
-	answer = 0
-	userGuess = 0
+	stops = {"vizag","sec","hyd","abc"}
+# 	upperBound = {"vizag","sec","hyd","abc"}
+# 	answer = 0
+# 	userGuess = 0
 	def get_numerical_response(self, dialog):
 		while True:
 			val = self.get_response(dialog)
-			try:
-				val = int(val)
-				return val
-			except ValueError:
-				self.speak_dialog("invalid.input")
-			except:
-				self.speak_dialog("input.error")
+# 			try:
+# 				val = int(val)
+# 				return val
+# 			except ValueError:
+# 				self.speak_dialog("invalid.input")
+# 			except:
+# 				self.speak_dialog("input.error")
 	@intent_handler(IntentBuilder("").require("NumberGuess").optionally("Play").optionally("Suggest"))
 	def handle_start_game_intent(self, message):
 		self.speak_dialog("start.game")
