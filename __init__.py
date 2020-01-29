@@ -8,9 +8,19 @@ class NumberGuessSkill(MycroftSkill):
 	def get_numerical_response(self,lower):
 		stops = ["vizag","hyd","sec"]
 		while True:
-			val = self.get_response(lower)
+			lower = self.get_response(lower)
 			if lower in stops:
+				 while True:
+				upper = self.get_response(upper)	
 				self.speak_dialog("invalid.input")
+				if upper in stops:
+                    			return lower, upper
+				else:
+                    		    self.speak('Could you please enter a valid destination stop')
+                    		    continue
+        		else:
+            		    self.speak('Could you please enter a valid boarding point')
+            		    continue
 				
 # 			try:
 # 				val = int(val)
