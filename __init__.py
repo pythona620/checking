@@ -29,7 +29,7 @@ class NumberGuessSkill(MycroftSkill):
 		upperBound = self.get_numerical_response("get.upper")
 # 		if lowerBound is not None:
 # 		answer = (lowerBound + upperBound)
-		self.speak (lowerBound)
+		self.speak(lowerBound)
 # 		userGuess = lowerBound - 1
 # 		while userGuess != answer:
 # 			userGuess = self.get_numerical_response("guess")
