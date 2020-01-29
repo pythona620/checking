@@ -14,7 +14,7 @@ class checkingSkill(MycroftSkill):
 			val = self.get_response(dialog)
 # 			try:
 # 				val = int(val)
-# 				return val
+				return val
 # 			except ValueError:
 # 				self.speak_dialog("invalid.input")
 # 			except:
