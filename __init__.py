@@ -6,7 +6,7 @@ __author__ = 'python'
 LOGGER = getLogger(__name__)
 class NumberGuessSkill(MycroftSkill):
 	def get_numerical_response(self,dialog):
-		stops = ["vizag","hyd","sec"]
+# 		stops = ["vizag","hyd","sec"]
 		while True:
 			lower = self.get_response(dialog)
 			if lower in stops:
