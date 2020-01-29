@@ -10,9 +10,9 @@ class NumberGuessSkill(MycroftSkill):
 		while True:
 			lower = self.get_response(dialog)
 			if lower in stops:
-				 while True:
-					upper = self.get_response(dialog)	
-					self.speak_dialog("invalid.input")
+# 				 while True:
+# 					upper = self.get_response(dialog)	
+# 					self.speak_dialog("invalid.input")
 # 					if upper in stops:
 #                     				return lower, upper
 # 					else:
