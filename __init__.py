@@ -27,10 +27,10 @@ class checkingSkill(MycroftSkill):
                 			if destination in stops:
                     				return source, destination
                 			else:
-                    				print('Could you please enter a valid destination stop')
+                    				self.speak('Could you please enter a valid destination stop')
                     				continue
        			 else:
-            			print('Could you please enter a valid boarding point')
+            			self.speak('Could you please enter a valid boarding point')
            			continue
 
 	stops = {"vizag", "hyderabad", "vijayawada"}
