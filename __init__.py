@@ -16,7 +16,7 @@ class NumberGuessSkill(MycroftSkill):
 
 	def get_numerical_response(self, dialog):
 # 		while True:
-# 			val = self.get_response(dialog)
+			val = self.get_response(dialog)
 # 			try:
 # 				val = int(val)
 # 				return val
