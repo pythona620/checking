@@ -20,7 +20,7 @@ class checkingSkill(MycroftSkill):
 		while True:
         		source = lowerBound
         		if source in stops:
-            			while True:
+#             			while True:
 #                 			destination = upperBound
 #                 			if destination in stops:
 #                     				return source, destination
