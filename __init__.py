@@ -13,8 +13,9 @@ class NumberGuessSkill(MycroftSkill):
 # 	answer = 0
 # 	userGuess = 0
 	def get_numerical_response(self, sorce):
-		while True:
-			val = self.get_response(sorce)
+	def get_numerical_response(self, dest):
+# 		while True:
+# 			val = self.get_response(sorce)
 # 			try:
 # 				val = int(val)
 # 				return val
