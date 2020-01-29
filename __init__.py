@@ -5,8 +5,8 @@ from random import randint
 __author__ = 'python'
 LOGGER = getLogger(__name__)
 class NumberGuessSkill(MycroftSkill):
-	stops = ["vizag","hyd","sec"]
 	def get_numerical_response(self,lower):
+		stops = ["vizag","hyd","sec"]
 		while True:
 			val = self.get_response(lower)
 			if lower in stops:
