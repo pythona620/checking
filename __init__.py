@@ -24,8 +24,10 @@ class checkingSkill(MycroftSkill):
 		self.speak_dialog("start.game")
 		# get lower bound
 		lowerBound = self.get_numerical_response("get.lower")
+		self.speak(lowerBound)
 		# get upper bound
 		upperBound = self.get_numerical_response("get.upper")
+		self.speak(upperBound)
 # 		answer = randint(lowerBound, upperBound)
 # 		userGuess = lowerBound - 1
 		while True:
@@ -42,6 +44,7 @@ class checkingSkill(MycroftSkill):
             			self.speak("Could you please enter a valid boarding point")
             		continue
 	def stop(self):
+		print("The sourceing point is "+ source+"and the destination is"+ destination)
 # 		lowerBound, upperBound = 0, 100
 # 		answer = 0
 # 		userGuess = answer
