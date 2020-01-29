@@ -31,6 +31,7 @@ class NumberGuessSkill(MycroftSkill):
 		# get upper bound
 		upperBound = self.get_numerical_response("get.upper")
 		answer = lowerBound + upperBound
+		self.speak (answer)
 # 		answer = randint(lowerBound, upperBound)
 # 		userGuess = lowerBound - 1
 # 		while userGuess != answer:
