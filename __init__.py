@@ -44,6 +44,6 @@ class NumberGuessSkill(MycroftSkill):
 # 		answer = 0
 # 		userGuess = answer
 # 		return True
-		return
+		pass
 def create_skill():
 	return NumberGuessSkill()
