@@ -18,7 +18,9 @@ class checkingSkill(MycroftSkill):
 		upperBound = self.get_stops("get.upper")
 	def  enter_source_destination(stops):
 		while True:
-#         		source = lowerBound
+        		source = lowerBound
+			self.speak('Could you please enter a valid destination stop')
+			break
 #         		if source in stops:
 # 				while True:
 # 					destination = upperBound
