@@ -19,7 +19,7 @@ class checkingSkill(MycroftSkill):
 	def  enter_source_destination(stops):
 		while True:
         		source = lowerBound
-        		if source in stops:
+#         		if source in stops:
 #             			while True:
 #                 			destination = upperBound
 #                 			if destination in stops:
