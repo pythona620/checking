@@ -27,10 +27,10 @@ class NumberGuessSkill(MycroftSkill):
 		lowerBound = self.get_numerical_response("get.lower")
 # 		# get upper bound
 		upperBound = self.get_numerical_response("get.upper")
-		if lowerBound is not None:
-			self.speak(lowerBound + " "+upperBound)
-        		else:
-            		     self.speak('you are not given any specific word!')
+# 		if lowerBound is not None:
+# 			self.speak(lowerBound + " "+upperBound)
+#         		else:
+#             		     self.speak('you are not given any specific word!')
 	def stop(self):
 		pass
 
