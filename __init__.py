@@ -14,22 +14,22 @@ class NumberGuessSkill(MycroftSkill):
 # 	userGuess = 0
 	def get_numerical_response(self, sorce):
 		while True:
-			val = self.get_response(dialog)
-			try:
-				val = int(val)
-				return val
-			except ValueError:
-				self.speak_dialog("invalid.input")
-			except:
-				self.speak_dialog("input.error")
+			val = self.get_response(sorce)
+# 			try:
+# 				val = int(val)
+# 				return val
+# 			except ValueError:
+# 				self.speak_dialog("invalid.input")
+# 			except:
+# 				self.speak_dialog("input.error")
 	@intent_handler(IntentBuilder("").require("NumberGuess").optionally("Play").optionally("Suggest"))
 	def handle_start_game_intent(self, message):
 		self.speak_dialog("start.game")
 
 		# get lower bound
-		lowerBound = self.get_numerical_response("get.lower")
+		lowerBound = self.get_numerical_response("get.sorce")
 		# get upper bound
-		upperBound = self.get_numerical_response("get.upper")
+		upperBound = self.get_numerical_response("get.dest")
 		answer = lowerBound + upperBound
 # 		self.speak (answer)
 		answer = randint(lowerBound, upperBound)
