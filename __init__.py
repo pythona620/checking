@@ -5,13 +5,13 @@ from random import randint
 __author__ = 'python'
 LOGGER = getLogger(__name__)
 class NumberGuessSkill(MycroftSkill):
-	def get_numerical_response(self,lower):
+	def get_numerical_response(self,dialog):
 		stops = ["vizag","hyd","sec"]
 		while True:
-			lower = self.get_response(lower)
+			lower = self.get_response(dialog)
 			if lower in stops:
 				 while True:
-					upper = self.get_response(upper)	
+					upper = self.get_response(dialog)	
 					self.speak_dialog("invalid.input")
 # 					if upper in stops:
 #                     				return lower, upper
