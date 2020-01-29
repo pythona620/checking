@@ -31,7 +31,7 @@ class checkingSkill(MycroftSkill):
                     				continue
        			 	else:
             				print('Could you please enter a valid boarding point')
-           			continue
+           				continue
 
 	stops = ['vizag', 'hyderabad', 'vijayawada']
 	source, destination = enter_source_destination(stops)
