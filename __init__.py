@@ -13,14 +13,14 @@ class NumberGuessSkill(MycroftSkill):
 				 while True:
 					upper = self.get_response(upper)	
 					self.speak_dialog("invalid.input")
-					if upper in stops:
-                    				return lower, upper
-					else:
-                    		    	    self.speak('Could you please enter a valid destination stop')
-                    		    	    continue
-        		else:
-            		    self.speak('Could you please enter a valid boarding point')
-            		    continue
+# 					if upper in stops:
+#                     				return lower, upper
+# 					else:
+#                     		    	    self.speak('Could you please enter a valid destination stop')
+#                     		    	    continue
+#         		else:
+#             		    self.speak('Could you please enter a valid boarding point')
+#             		    continue
 				
 # 			try:
 # 				val = int(val)
