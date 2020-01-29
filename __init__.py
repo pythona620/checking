@@ -8,11 +8,11 @@ __author__ = 'pthona'
 LOGGER = getLogger(__name__)
 
 class NumberGuessSkill(MycroftSkill):
-	lowerBound = 0
-	upperBound = 100
-	answer = 0
-	userGuess = 0
-	def get_numerical_response(self, dialog):
+# 	lowerBound = 
+# 	upperBound = 
+# 	answer = 0
+# 	userGuess = 0
+	def get_numerical_response(self, sorce):
 		while True:
 			val = self.get_response(dialog)
 			try:
