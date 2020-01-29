@@ -8,12 +8,6 @@ __author__ = 'python'
 LOGGER = getLogger(__name__)
 
 class NumberGuessSkill(MycroftSkill):
-
-	lowerBound = 0
-	upperBound = 100
-	answer = 0
-	userGuess = 0
-
 	def get_numerical_response(self, dialog):
 # 		while True:
 			val = self.get_response(dialog)
@@ -46,10 +40,10 @@ class NumberGuessSkill(MycroftSkill):
 # 		self.speak_dialog("correct")
 
 	def stop(self):
-		lowerBound, upperBound = 0, 100
-		answer = 0
-		userGuess = answer
-		return True
-
+# 		lowerBound, upperBound = 0, 100
+# 		answer = 0
+# 		userGuess = answer
+# 		return True
+		return
 def create_skill():
 	return NumberGuessSkill()
