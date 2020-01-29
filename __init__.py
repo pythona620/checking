@@ -34,15 +34,16 @@ class NumberGuessSkill(MycroftSkill):
 		# get upper bound
 		upperBound = self.get_numerical_response("get.upper")
 
-		answer = randint(lowerBound, upperBound)
-		userGuess = lowerBound - 1
-		while userGuess != answer:
-			userGuess = self.get_numerical_response("guess")
-			if userGuess < answer:
-				self.speak_dialog("too.low")
-			elif userGuess > answer:
-				self.speak_dialog("too.high")
-		self.speak_dialog("correct")
+		answer = (lowerBound + upperBound)
+		self.speak (answeer)
+# 		userGuess = lowerBound - 1
+# 		while userGuess != answer:
+# 			userGuess = self.get_numerical_response("guess")
+# 			if userGuess < answer:
+# 				self.speak_dialog("too.low")
+# 			elif userGuess > answer:
+# 				self.speak_dialog("too.high")
+# 		self.speak_dialog("correct")
 
 	def stop(self):
 		lowerBound, upperBound = 0, 100
