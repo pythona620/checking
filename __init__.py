@@ -29,7 +29,7 @@ class checkingSkill(MycroftSkill):
 #                 			else:
 #                     				self.speak('Could you please enter a valid destination stop')
 #                     				continue
-#        			 else:
+#        		else:
 #             			self.speak('Could you please enter a valid boarding point')
 #            			continue
 
