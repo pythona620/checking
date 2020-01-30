@@ -19,9 +19,8 @@ class checkingSkill(MycroftSkill):
 		stopslist = stpos.split(',')
 		stopslist = []
 		while True:
-        		source = lowerBound
-			self.speak(source)
-	        		if source in stopslist:
+			source = lowerBound
+	        	if source in stopslist:
 				while True:
 					destination = upperBound
                 			if destination in stopslist:
@@ -30,8 +29,8 @@ class checkingSkill(MycroftSkill):
                     				self.speak('Could you please enter a valid destination stop')
                     				continue
        		else:
-            			self.speak('Could you please enter a valid boarding point')
-           			continue
+            		self.speak('Could you please enter a valid boarding point')
+           		continue
 	stops = {'vizag','sec','hyd','abc'}
 	source, destination = enter_source_destination(stops)
 	self.speak('The sourceing point is '+ source+ 'and the destination is '+ destination)
