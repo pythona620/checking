@@ -20,8 +20,8 @@ class checkingSkill(MycroftSkill):
 		stopslist = []
 		while True:
         		source = lowerBound
-			self.speak('Could you please enter a valid destination stop')
-			self.speak(source)
+				self.speak('Could you please enter a valid destination stop')
+				self.speak(source)
         		if source in stopslist:
 				while True:
 					destination = upperBound
