@@ -1,41 +1,54 @@
 from adapt.intent import IntentBuilder
 from mycroft.skills.core import MycroftSkill, intent_handler
 from mycroft.util.log import LOG, getLogger
+
 from random import randint
-__author__ = 'python'
+
+__author__ = 'Arc676/Alessandro Vinciguerra'
 LOGGER = getLogger(__name__)
-class ticketSkill(MycroftSkill):
+
+class NumberGuessSkill(MycroftSkill):
+
+	lowerBound = 0
+	upperBound = 100
+	answer = 0
+	userGuess = 0
+
 	def get_numerical_response(self, dialog):
-		yip = self.get_response(dialog) 
-		return yip
-	@intent_handler(IntentBuilder("").require("travel").optionally("Play").optionally("Suggest"))
+		while True:
+			val = self.get_response(dialog)
+			try:
+				val = int(val)
+				return val
+			except ValueError:
+				self.speak_dialog("invalid.input")
+			except:
+				self.speak_dialog("input.error")
+
+	@intent_handler(IntentBuilder("").require("NumberGuess").optionally("Play").optionally("Suggest"))
 	def handle_start_game_intent(self, message):
 		self.speak_dialog("start.game")
+
 		# get lower bound
 		lowerBound = self.get_numerical_response("get.lower")
-		# get myfriendname
+		# get upper bound
 		upperBound = self.get_numerical_response("get.upper")
-# 	def  enter_source_destination(self,stops):
-#     	while True:
-#         	source = lowerBound
-#         	if source in stops:
-#             	while True:
-#                 	destination = upperBound
-#                 	if destination in stops:
-#                     		return source, destination
-#                 	else:
-#                     		self.speak('Could you please enter a valid destination stop')
-#                     		continue
-#         	else:
-#             		self.speak('Could you please enter a valid boarding point')
-#             		continue
 
-#     	stops = ['vizag', 'hyderabad', 'vijayawada']
-#     	source, destination = enter_source_destination(stops)
-#     	self.speak('The sourceing point is ', source, 'and the destination is ', destination)
-	
+		answer = randint(lowerBound, upperBound)
+		userGuess = lowerBound - 1
+		while userGuess != answer:
+			userGuess = self.get_numerical_response("guess")
+			if userGuess < answer:
+				self.speak_dialog("too.low")
+			elif userGuess > answer:
+				self.speak_dialog("too.high")
+		self.speak_dialog("correct")
+
 	def stop(self):
-		pass
-	
+		lowerBound, upperBound = 0, 100
+		answer = 0
+		userGuess = answer
+		return True
+
 def create_skill():
-	return ticketSkill()
+	return NumberGuessSkill()
