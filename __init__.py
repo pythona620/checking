@@ -16,8 +16,8 @@ class checkingSkill(MycroftSkill):
 		# get myfriendname
 		upperBound = self.get_stops("get.upper")
 	def  enter_source_destination(self,stops):
-		stopslist = stpos.split(',')
-		stopslist = []
+# 		stopslist = stpos.split(',')
+# 		stopslist = []
 		while True:
 			source = lowerBound
 	        	if source in stopslist:
