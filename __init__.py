@@ -21,19 +21,20 @@ class checkingSkill(MycroftSkill):
 		while True:
 		    source = lowerBound
 	        	if source in stops:#here getting indentation error
-				while True:
-					destination = upperBound
-                			if destination in stopslist:
-                    				return source, destination
-                			else:
-                    				self.speak('Could you please enter a valid destination stop')
-                    				continue
-       			else:
-            			self.speak('Could you please enter a valid boarding point')
-           			continue
+				self.speak(lowerBound)
+# 				while True:
+# 					destination = upperBound
+#                 			if destination in stopslist:
+#                     				return source, destination
+#                 			else:
+#                     				self.speak('Could you please enter a valid destination stop')
+#                     				continue
+#        			else:
+#             			self.speak('Could you please enter a valid boarding point')
+#            			continue
 	stops = {'vizag','sec','hyd','abc'}
-	source, destination = enter_source_destination(stops)
-	self.speak('The sourceing point is '+ source+ 'and the destination is '+ destination)
+# 	source, destination = enter_source_destination(stops)
+# 	self.speak('The sourceing point is '+ source+ 'and the destination is '+ destination)
 	
 	def stop(self):
 		pass
