@@ -19,8 +19,8 @@ class checkingSkill(MycroftSkill):
 # 		stopslist = stpos.split(',')
 # 		stopslist = []
 		while True:
-			source = lowerBound
-	        	if source in stops:
+		    source = lowerBound
+	        	if source in stops:#here getting indentation error
 				while True:
 					destination = upperBound
                 			if destination in stopslist:
@@ -28,9 +28,9 @@ class checkingSkill(MycroftSkill):
                 			else:
                     				self.speak('Could you please enter a valid destination stop')
                     				continue
-       		else:
-            		self.speak('Could you please enter a valid boarding point')
-           		continue
+       			else:
+            			self.speak('Could you please enter a valid boarding point')
+           			continue
 	stops = {'vizag','sec','hyd','abc'}
 	source, destination = enter_source_destination(stops)
 	self.speak('The sourceing point is '+ source+ 'and the destination is '+ destination)
